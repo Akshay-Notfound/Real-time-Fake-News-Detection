@@ -66,7 +66,20 @@ cd Real-time-Fake-News-Detection
 
 ---
 
-## 🏃‍♂️ How to Run
+## � Deployment
+
+Want to put this project online?
+
+👉 **[Click here for the Full Deployment Guide](DEPLOYMENT.md)**
+
+We have step-by-step instructions for:
+- **Render** (Recommended, Free)
+- **PythonAnywhere**
+- **Heroku**
+
+---
+
+## �🏃‍♂️ How to Run
 
 1. **Start the Development Server**:
    Ensure you are in the `FakeNewsDetector` folder (where `manage.py` is):
