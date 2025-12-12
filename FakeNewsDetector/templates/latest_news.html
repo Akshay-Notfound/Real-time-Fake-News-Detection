@@ -108,9 +108,15 @@
             {% endfor %}
         </div>
         {% else %}
+        {% else %}
         <div class="alert alert-warning text-center">
+            {% if api_error %}
+            {{ api_error }}
+            {% else %}
             No news found or API limit reached. Please try again later.
+            {% endif %}
         </div>
+        {% endif %}
         {% endif %}
 
     </div>

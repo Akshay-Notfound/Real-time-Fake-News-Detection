@@ -117,8 +117,7 @@ def predict_batch(request):
 import requests
 
 def latest_news(request):
-    import os
-    api_key = os.environ.get("MEDIASTACK_API_KEY", "1c73b5f6ecc41fc0c76f9fca4aa7f31e") 
+    api_key = "635ac2e8ac7c1bf92f8ae662864d392f" 
     # Fetching latest English news using Mediastack API
     # Params: languages=en, sort=published_desc, limit=25
     url = f"http://api.mediastack.com/v1/news?access_key={api_key}&languages=en&sort=published_desc&limit=25"
@@ -172,8 +171,14 @@ def latest_news(request):
                 })
         else:
             print(f"API Error/No Data: {data}")
+            if 'error' in data:
+                 # Capture specific API error message
+                error_msg = data['error'].get('info', 'Unknown API Error')
+                context = {'news_items': [], 'api_error': f"API Error: {error_msg}"}
+                return render(request, 'latest_news.html', context)
             
     except Exception as e:
         print(f"Fetch Error: {e}")
+        return render(request, 'latest_news.html', {'news_items': [], 'api_error': f"Connection Error: {str(e)}"})
 
     return render(request, 'latest_news.html', {'news_items': news_items})
