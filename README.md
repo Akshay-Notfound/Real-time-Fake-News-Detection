@@ -9,6 +9,10 @@ This project uses Machine Learning (PassiveAggressiveClassifier) and Django to c
 - **Real-Time News**: View live global news headlines with AI-predicted authenticity labels.
 - **Visual Results**: Clear green (Real) and red (Fake) indicators.
 
+## 🌐 Live Demo
+Check out the live application running on Render:
+👉 **[https://fake-news-detector-app-0hlj.onrender.com/](https://fake-news-detector-app-0hlj.onrender.com/)**
+
 ## Tech Stack
 - **Backend**: Django 4.x
 - **ML**: Scikit-Learn, Pandas, TfidfVectorizer
