@@ -31,8 +31,8 @@ Render is a modern cloud provider with a generous free tier for web services.
     *   **Region**: Choose the one closest to you.
     *   **Branch**: `main`.
     *   **Runtime**: `Python 3`.
-    *   **Build Command**: `pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate`
-    *   **Start Command**: `gunicorn FakeNewsDetector.wsgi:application`
+    *   **Build Command**: `pip install -r requirements.txt && cd FakeNewsDetector && python manage.py collectstatic --noinput && python manage.py migrate`
+    *   **Start Command**: `gunicorn --chdir FakeNewsDetector FakeNewsDetector.wsgi:application`
 4.  **Environment Variables** (Advanced):
     *   Add `PYTHON_VERSION` = `3.9.0` (or your local version).
     *   Add `SECRET_KEY` = `1c73b5f6ecc41fc0c76f9fca4aa7f31e`
