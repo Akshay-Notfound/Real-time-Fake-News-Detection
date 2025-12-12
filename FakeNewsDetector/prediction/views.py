@@ -117,7 +117,8 @@ def predict_batch(request):
 import requests
 
 def latest_news(request):
-    api_key = "1c73b5f6ecc41fc0c76f9fca4aa7f31e" 
+    import os
+    api_key = os.environ.get("MEDIASTACK_API_KEY", "1c73b5f6ecc41fc0c76f9fca4aa7f31e") 
     # Fetching latest English news using Mediastack API
     # Params: languages=en, sort=published_desc, limit=25
     url = f"http://api.mediastack.com/v1/news?access_key={api_key}&languages=en&sort=published_desc&limit=25"
