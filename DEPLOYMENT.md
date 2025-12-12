@@ -35,7 +35,7 @@ Render is a modern cloud provider with a generous free tier for web services.
     *   **Start Command**: `gunicorn FakeNewsDetector.wsgi:application`
 4.  **Environment Variables** (Advanced):
     *   Add `PYTHON_VERSION` = `3.9.0` (or your local version).
-    *   Add `SECRET_KEY` = (Your Django secret key).
+    *   Add `SECRET_KEY` = `1c73b5f6ecc41fc0c76f9fca4aa7f31e`
     *   Add `DEBUG` = `False`.
 5.  **Deploy**: Click **"Create Web Service"**. Render will build and deploy your app.
 
