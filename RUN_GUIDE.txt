@@ -1,0 +1,50 @@
+FAKE NEWS DETECTION SYSTEM - RUN GUIDE
+========================================
+
+HOW TO START THE SERVER
+-----------------------
+1. Open Command Prompt (cmd) or Terminal.
+2. Navigate to the project folder where `manage.py` is located:
+   cd "c:\FINAL YEAR PROJECTS\Fake News Detection\FakeNewsDetector"
+
+3. Run the development server:
+   python manage.py runserver
+
+4. You should see output like:
+   "Starting development server at http://127.0.0.1:8000/"
+
+HOW TO USE THE APP
+------------------
+1. Open your web browser (Chrome, Edge, Firefox).
+2. Go to: http://127.0.0.1:8000
+
+FEATURE 1: SINGLE ARTICLE CHECK
+- Go to the "Single Article" tab.
+- Paste the TITLE and BODY of a news article.
+- Click "Analyze Authenticity".
+- Result: You will see a GREEN badge (Real) or RED badge (Fake).
+- Note: Very short text (<50 words) may show a "Low Confidence" warning.
+
+FEATURE 2: BATCH CSV UPLOAD
+- Go to the "Batch Processing (CSV)" tab.
+- Create a CSV file with a column named 'text' or 'title'.
+- Upload the file.
+- Result: A table showing Real/Fake status for every row.
+
+FEATURE 3: REAL-TIME NEWS (LIVE)
+- Click the "Example Live News" link in the navigation menu.
+- The system connects to the Mediastack API.
+- It fetches the latest global headlines.
+- It runs the AI model on each headline automatically.
+- Result: A dashboard of live news cards with their AI predictions.
+
+TROUBLESHOOTING
+---------------
+- "Command not found": Ensure Python is added to your system PATH.
+- "Module not found": Run `pip install -r requirements.txt` again.
+- API Issues: If Live News shows "No news found", the API key limit might be reached. 
+  You can update the key in `prediction/views.py`.
+
+SHUTTING DOWN
+-------------
+To stop the server, go to your terminal and press `Ctrl + C`.

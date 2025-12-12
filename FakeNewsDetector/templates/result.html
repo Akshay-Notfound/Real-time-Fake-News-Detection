@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .result-card {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .badge-huge {
+            font-size: 3rem;
+            padding: 20px 40px;
+            border-radius: 50px;
+        }
+
+        .bg-real {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .bg-fake {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card result-card shadow">
+            <h2 class="text-muted mb-4">The news article is classified as:</h2>
+
+            {% if prediction == 'REAL' %}
+            <div>
+                <span class="badge badge-huge bg-real">REAL</span>
+            </div>
+            <p class="mt-4 text-success">This content appears to be authentic based on our analysis.</p>
+            {% else %}
+            <div>
+                <span class="badge badge-huge bg-fake">FAKE</span>
+            </div>
+            <p class="mt-4 text-danger">Warning: This content shows patterns consistent with misinformation.</p>
+            {% endif %}
+
+            <div class="mt-5">
+                <a href="{% url 'home' %}" class="btn btn-outline-secondary">Analyze Another Article</a>
+            </div>
+
+            {% if is_short %}
+            <div class="alert alert-warning mt-4 text-start">
+                <strong>⚠️ Low Confidence Warning:</strong><br>
+                You only provided <strong>{{ word_count }}</strong> words.
+                Machine Learning models require sufficient context (usually >50 words) to make accurate predictions.
+                A short headline alone often lacks the features needed for verification.
+            </div>
+            {% endif %}
+
+            <div class="alert alert-light mt-4 text-muted small text-start border">
+                <strong>Disclaimer:</strong> This model is trained on international political datasets. It may not
+                accurately classify local news, sports, or niche topics due to "Domain Mismatch". Always verify with
+                official sources.
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

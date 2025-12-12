@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-tabs .nav-link.active {
+            color: #764ba2;
+            font-weight: bold;
+            border-bottom: 3px solid #764ba2;
+        }
+
+        .nav-link {
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">AI Fake News Detector</h1>
+            <p class="lead">Detect misinformation in seconds using Machine Learning.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card p-4 shadow-sm">
+
+                    <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="text-tab" data-bs-toggle="tab"
+                                data-bs-target="#text-pane" type="button" role="tab">Single Article</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="file-tab" data-bs-toggle="tab" data-bs-target="#file-pane"
+                                type="button" role="tab">Batch Processing (CSV)</button>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'latest_news' %}">Example Live News 🌍</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="myTabContent">
+                        <!-- Single Text Input -->
+                        <div class="tab-pane fade show active" id="text-pane" role="tabpanel">
+                            <form action="{% url 'predict' %}" method="POST">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label for="news_text" class="form-label fw-bold">Paste News Article Content</label>
+                                    <textarea class="form-control" id="news_text" name="news_text" rows="8"
+                                        placeholder="Enter headline or body text here..." required></textarea>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg">Analyze Authenticity</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Batch CSV Upload -->
+                        <div class="tab-pane fade" id="file-pane" role="tabpanel">
+                            <div class="alert alert-info">
+                                <strong>Format:</strong> Upload a CSV file with at least a column named
+                                <code>text</code> or <code>title</code>.
+                            </div>
+                            <form action="{% url 'predict_batch' %}" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label for="csv_file" class="form-label fw-bold">Upload CSV File</label>
+                                    <input class="form-control" type="file" id="csv_file" name="csv_file" accept=".csv"
+                                        required>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-dark btn-lg">Run Batch Detection</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-5 text-muted">
+        <p>&copy; 2024 Fake News Detector Project</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+FAKE NEWS DETECTION SYSTEM - INSTALLATION GUIDE
+=================================================
+
+PREREQUISITES
+-------------
+1. Python (Version 3.8 or higher)
+   - Download from: https://www.python.org/downloads/
+   - During installation, check "Add Python to PATH".
+
+2. Internet Connection
+   - Required to download dependencies and for the Realtime News feature.
+
+Step 1: EXTRACT PROJECT
+-----------------------
+Ensure the project folder `Fake News Detection` is on your computer.
+Example location: c:\FINAL YEAR PROJECTS\Fake News Detection\
+
+Step 2: INSTALL DEPENDENCIES
+----------------------------
+1. Open your Command Prompt (cmd) or Terminal.
+2. Navigate to the project directory:
+   cd "c:\FINAL YEAR PROJECTS\Fake News Detection"
+
+3. Install the required Python libraries using the provided requirements file:
+   pip install -r requirements.txt
+
+   (Note: This installs Django, Scikit-learn, Pandas, NLTK, Requests, etc.)
+
+Step 3: VERIFY ML MODEL
+-----------------------
+The project comes with a pre-trained model. 
+1. Check that the folder `FakeNewsDetector\prediction\ml_models` exists.
+2. Ensure it contains `model.pkl` and `vectorizer.pkl`.
+
+If these files are missing, train the model manually:
+   python ml/train_model.py
+
+Step 4: DATABASE SETUP
+----------------------
+Initialize the Django database (SQLite):
+1. Navigate to the inner project folder:
+   cd FakeNewsDetector
+
+2. Run migrations:
+   python manage.py migrate
+
+INSTALLATION COMPLETE!
+You are now ready to run the project. See RUN_GUIDE.txt.

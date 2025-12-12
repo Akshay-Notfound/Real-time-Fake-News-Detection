@@ -1,0 +1,9 @@
+*.pkl
+*.pyc
+__pycache__/
+db.sqlite3
+.DS_Store
+.env
+site-packages/
+venv/
+fake_or_real_news.csv
