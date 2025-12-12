@@ -22,10 +22,9 @@ This project uses Machine Learning (PassiveAggressiveClassifier) and Django to c
 To download this project to your local machine, use the following git command:
 
 ```bash
-git clone <repository-url>
-cd "Fake News Detection"
+gh repo clone Akshay-Notfound/Real-time-Fake-News-Detection
+cd Real-time-Fake-News-Detection
 ```
-*(Replace `<repository-url>` with the actual URL of this repository)*
 
 ---
 
